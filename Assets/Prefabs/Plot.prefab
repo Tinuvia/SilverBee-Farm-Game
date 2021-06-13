@@ -122,6 +122,7 @@ GameObject:
   - component: {fileID: 7078802908179923333}
   - component: {fileID: 7078802908179923330}
   - component: {fileID: 7078802908179923329}
+  - component: {fileID: 8183164279960457588}
   m_Layer: 0
   m_Name: Plot
   m_TagString: Untagged
@@ -207,11 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03b0b165e7c5d794ebe6dfeaf744a520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantStages:
-  - {fileID: -2243732589849547616, guid: 22514ec1a57624c408d4489a7dec4d0a, type: 3}
-  - {fileID: 4506980375917697221, guid: 22514ec1a57624c408d4489a7dec4d0a, type: 3}
-  - {fileID: 6205673657870114336, guid: 22514ec1a57624c408d4489a7dec4d0a, type: 3}
-  - {fileID: 6881750370916773083, guid: 22514ec1a57624c408d4489a7dec4d0a, type: 3}
+  selectedPlant: {fileID: 11400000, guid: 0a02d2f1ff47acc459579b5bdf07fece, type: 2}
 --- !u!60 &7078802908179923330
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -264,3 +261,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8183164279960457588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078802908179923334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18689930681ea904e93606be162f6e57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
