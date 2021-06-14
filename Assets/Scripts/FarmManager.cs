@@ -1,22 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FarmManager : MonoBehaviour
 {
     public PlantItem selectPlant;
     public bool isPlanting = false;
+    public int money = 100;
+    public Text moneyTxt;
+
+    public Color buyColor = Color.green;
+    public Color cancelColor = Color.red;
 
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        moneyTxt.text = "$" + money;
     }
 
     public void SelectPlant(PlantItem newPlant)
@@ -24,15 +24,35 @@ public class FarmManager : MonoBehaviour
         // deselect if clicked while already selected
         if(selectPlant == newPlant)
         {
-            Debug.Log("Deselected " + selectPlant.plant.plantName);
+            selectPlant.btnImage.color = buyColor;
+            selectPlant.btnTxt.text = "Buy";
             selectPlant = null;
             isPlanting = false;
         }
         else
         {
+            if(selectPlant != null)
+            {
+                selectPlant.btnImage.color = buyColor;
+                selectPlant.btnTxt.text = "Buy";
+            }
             selectPlant = newPlant;
-            Debug.Log("Selected " + selectPlant.plant.plantName);
+            selectPlant.btnImage.color = cancelColor;
+            selectPlant.btnTxt.text = "Cancel";
             isPlanting = true;
         }
     }
+
+    public void Transaction(int value)
+    {
+        money += value;
+        moneyTxt.text = "$" + money;
+    }
+
+    // REFACTORING 
+    // function UpdateMoney: moneyTxt.text = "$" + money;
+    // Set up FarmManager as singleton
+    //  function UpdateSelectionButton(bool isBuying): 
+    // --- selectPlant.btnImage.color = buyColor; cancelColor
+    // --- selectPlant.btnTxt.text = "Buy";
 }

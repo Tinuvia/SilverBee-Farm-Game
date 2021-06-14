@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fefb93f9a4a4af740bb3e7a9785ce9d1, type: 3}
-  m_Name: Corn
+  m_Name: SuperCorn
   m_EditorClassIdentifier: 
-  plantName: Corn
+  plantName: Super Corn
   plantStages:
   - {fileID: -2243732589849547616, guid: 22514ec1a57624c408d4489a7dec4d0a, type: 3}
   - {fileID: 4506980375917697221, guid: 22514ec1a57624c408d4489a7dec4d0a, type: 3}
   - {fileID: 6205673657870114336, guid: 22514ec1a57624c408d4489a7dec4d0a, type: 3}
   - {fileID: 6881750370916773083, guid: 22514ec1a57624c408d4489a7dec4d0a, type: 3}
-  timeBtwStages: 2
-  price: 10
+  timeBtwStages: 3
+  buyPrice: 40
+  sellPrice: 100
   icon: {fileID: -8344284950600746447, guid: 22514ec1a57624c408d4489a7dec4d0a, type: 3}

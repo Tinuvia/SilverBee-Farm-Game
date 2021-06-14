@@ -9,6 +9,8 @@ public class PlantItem : MonoBehaviour
     public Text nameTxt;
     public Text priceTxt;
     public Image icon;
+    public Image btnImage;
+    public Text btnTxt;
 
     FarmManager fm;
 
@@ -27,10 +29,10 @@ public class PlantItem : MonoBehaviour
     void InitializeUI()
     {
         nameTxt.text = plant.plantName;
-        priceTxt.text = "$" + plant.price;
+        priceTxt.text = "$" + plant.buyPrice;
         icon.sprite = plant.icon;
     }
 
 
-    // REFACTORING --- Set up FarmManager as singleton
+    // REFACTORING --- Set up FarmManager as singleton --> consequences here?
 }

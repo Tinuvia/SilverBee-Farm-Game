@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 5358328289726614467}
   - component: {fileID: 5358328289726614466}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BuyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 5358328289875191180}
   - component: {fileID: 5358328289875191183}
   m_Layer: 5
-  m_Name: Text
+  m_Name: BuyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -571,3 +571,5 @@ MonoBehaviour:
   nameTxt: {fileID: 5358328290042483535}
   priceTxt: {fileID: 5358328289741795550}
   icon: {fileID: 5358328289540458568}
+  btnImage: {fileID: 5358328289726614467}
+  btnTxt: {fileID: 5358328289875191183}

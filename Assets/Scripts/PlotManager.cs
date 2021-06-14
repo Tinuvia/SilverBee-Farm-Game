@@ -7,8 +7,14 @@ public class PlotManager : MonoBehaviour
     bool isPlanted = false;
     SpriteRenderer plant;
     BoxCollider2D plantCollider;
+
     int plantStage = 0;
     float timer;
+
+    public Color availableColor = Color.green;
+    public Color unAvailableColor = Color.red;
+    SpriteRenderer plot;
+
     FarmManager fm;
     PlantObject selectedPlant;
 
@@ -16,6 +22,7 @@ public class PlotManager : MonoBehaviour
     void Start()
     {
         plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
+        plot = GetComponent<SpriteRenderer>();
         plantCollider = transform.GetChild(0).GetComponent<BoxCollider2D>();
         fm = transform.parent.GetComponent<FarmManager>();
     }
@@ -40,21 +47,41 @@ public class PlotManager : MonoBehaviour
     {
         if (isPlanted)
         {
-            if(plantStage == (selectedPlant.plantStages.Length - 1))
+            if(!fm.isPlanting && plantStage == (selectedPlant.plantStages.Length - 1))
                 Harvest();
         }         
-        else if (fm.isPlanting)
+        else if (fm.isPlanting && fm.selectPlant.plant.buyPrice <= fm.money)
         {
-            Plant(fm.selectPlant.plant);
+            Plant(fm.selectPlant.plant); // can't use selectedPlant here since it's not planted yet
         }
             
     }
 
+    private void OnMouseOver()
+    {
+        if (fm.isPlanting)
+        {
+            if (isPlanted || fm.selectPlant.plant.buyPrice > fm.money)
+            {
+                plot.color = unAvailableColor;
+            }
+            else
+            {
+                plot.color = availableColor;
+            }
+        }
+    }
+
+    private void OnMouseExit()
+    {
+        plot.color = Color.white; // makes the SpriteRenderer go back to default color
+    }
+
     void Harvest()
     {
-        isPlanted = false;
-        Debug.Log("Harvested");            
+        isPlanted = false;        
         plant.gameObject.SetActive(false);
+        fm.Transaction(selectedPlant.sellPrice);
 
     }
 
@@ -62,7 +89,9 @@ public class PlotManager : MonoBehaviour
     {
         selectedPlant = newPlant;
         isPlanted = true;
-        Debug.Log("Planted");
+
+        fm.Transaction(-selectedPlant.buyPrice);
+
         plantStage = 0;
         UpdatePlant();
         plant.gameObject.SetActive(true);
@@ -77,5 +106,6 @@ public class PlotManager : MonoBehaviour
         plantCollider.offset = new Vector2(0, plant.bounds.size.y/2);
     }
 
-    //Refactoring: in Start, assign plantStages[] = selectedPlant.plantStages etc
+    //Refactoring: in Start, assign plantStages[] = selectedPlant.plantStages etc does this work if selected plant changes?
+    // Set up FarmManager as singleton --> consequences here?
 }

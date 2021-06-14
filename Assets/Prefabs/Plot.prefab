@@ -208,7 +208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03b0b165e7c5d794ebe6dfeaf744a520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedPlant: {fileID: 11400000, guid: 0a02d2f1ff47acc459579b5bdf07fece, type: 2}
+  availableColor: {r: 0.38431373, g: 0.81960785, b: 0.34509805, a: 1}
+  unAvailableColor: {r: 0.8, g: 0.2627451, b: 0.2627451, a: 1}
 --- !u!60 &7078802908179923330
 PolygonCollider2D:
   m_ObjectHideFlags: 0
