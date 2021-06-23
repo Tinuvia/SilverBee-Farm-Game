@@ -69,7 +69,7 @@ public class PlotManager : MonoBehaviour
     {
         if (isPlanted)
         {
-            if(!fm.isPlanting && (plantStage == (selectedPlant.plantStages.Length - 1)))
+            if(!fm.isPlanting && !fm.isSelecting && (plantStage == (selectedPlant.plantStages.Length - 1)))
                 Harvest();
         }         
         else if (isBought && fm.isPlanting && (fm.selectPlant.plant.buyPrice <= fm.money))
@@ -81,15 +81,18 @@ public class PlotManager : MonoBehaviour
         {
             switch (fm.selectedTool)
             {
-                case 1: // watering can
-                    isDry = false;
-                    plot.sprite = normalSprite;
-                    if (isPlanted)
-                        UpdatePlant();
+                case 1: // watering
+                    if (isBought)
+                    {
+                        isDry = false;
+                        plot.sprite = normalSprite;
+                        if (isPlanted)
+                            UpdatePlant();
+                    }
                     break;
 
                 case 2: // fertilizer
-                    if ((speed < speedLimit) && (fm.money >= fertilizerCost))
+                    if (isBought && (speed < speedLimit) && (fm.money >= fertilizerCost))
                     {
                         fm.Transaction(-fertilizerCost);
                         speed += speedIncrease;
@@ -110,6 +113,7 @@ public class PlotManager : MonoBehaviour
     }
 
     private void OnMouseOver()
+        // deals with the visual cue color changes of the plot
     {
         if (fm.isPlanting)
         {
@@ -120,6 +124,29 @@ public class PlotManager : MonoBehaviour
             else
             {
                 plot.color = availableColor;
+            }
+        }
+
+        if (fm.isSelecting)
+        {
+            switch (fm.selectedTool)
+            {
+                case 1:
+                case 2:
+                    if (isBought && fm.money >= (fm.selectedTool-1) * fertilizerCost) // tool is 0 if watering, 1 if fertilizer
+                        plot.color = availableColor;
+                    else
+                        plot.color = unAvailableColor;
+                    break;
+                case 3:
+                    if (!isBought && fm.money >= plotCost)
+                        plot.color = availableColor;
+                    else
+                        plot.color = unAvailableColor;
+                    break;
+                default:
+                    plot.color = unAvailableColor;
+                    break;
             }
         }
     }
