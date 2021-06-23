@@ -210,6 +210,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   availableColor: {r: 0.38431373, g: 0.81960785, b: 0.34509805, a: 1}
   unAvailableColor: {r: 0.8, g: 0.2627451, b: 0.2627451, a: 1}
+  drySprite: {fileID: -939494641437605497, guid: 3f340e01ca33cfe4f8c8fe70a8165780,
+    type: 3}
+  normalSprite: {fileID: -1167222277155119612, guid: 22514ec1a57624c408d4489a7dec4d0a,
+    type: 3}
 --- !u!60 &7078802908179923330
 PolygonCollider2D:
   m_ObjectHideFlags: 0

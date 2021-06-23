@@ -16,10 +16,10 @@ TextureImporter:
     second: Background_icon_Selected
   - first:
       213: -4943352394623894318
-    second: Soil_MultiPlant
+    second: DrySoil_MultiPlant
   - first:
       213: -6722333681955717557
-    second: Soil_SinglePlant
+    second: DrySoil_SinglePlant
   - first:
       213: 7938416930045131424
     second: Water_icon
@@ -210,7 +210,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Soil_MultiPlant
+      name: DrySoil_MultiPlant
       rect:
         serializedVersion: 2
         x: 0
@@ -231,11 +231,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Soil_SinglePlant
+      name: DrySoil_SinglePlant
       rect:
         serializedVersion: 2
         x: 360
-        y: 42
+        y: 43
         width: 340
         height: 170
       alignment: 7
