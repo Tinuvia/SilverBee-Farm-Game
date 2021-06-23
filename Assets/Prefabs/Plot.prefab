@@ -214,6 +214,9 @@ MonoBehaviour:
     type: 3}
   normalSprite: {fileID: -1167222277155119612, guid: 22514ec1a57624c408d4489a7dec4d0a,
     type: 3}
+  unavailableSprite: {fileID: -5737574994739756139, guid: 3f340e01ca33cfe4f8c8fe70a8165780,
+    type: 3}
+  isBought: 1
 --- !u!60 &7078802908179923330
 PolygonCollider2D:
   m_ObjectHideFlags: 0
